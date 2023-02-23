@@ -6,8 +6,22 @@ This is an application which is built on React + Typescript. On load the chart i
 
 ## Live demo
 
-
 * [Click Here](https://charts-delta-six.vercel.app/) to view the deployed website.
+
+
+## Deployment
+
+To build this project
+
+```bash
+  yarn build
+```
+To start this project
+
+```bash
+  yarn start
+```
+
 
 ## Tech Stack 
    * ReactJs
