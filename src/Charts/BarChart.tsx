@@ -2,13 +2,18 @@ import ReactEcharts from "echarts-for-react";
 import { useEffect, useState } from "react";
 import data from "../data/Wine-Data.json"
 
+// define "type" globally
 type outputDatatype = {[key:number]:{value:number,repeat:number}}
 
 
 export default function BarChart(){
+    //It's contain average of Malic acid
     const [yaxisData, setyaxisData] = useState<number[]>([])
+    // It's contain categoty of Alcohol
     const [category, setcategory] = useState<string[]>([])
 
+    //getData function create an objects which contain Alcohol category as key 
+    //and in this category there are two properties which is total malic acid value and total count of malic acid
     const getData = () => {
       let outputData:outputDatatype={}
         data.forEach((el)=>{
@@ -22,6 +27,7 @@ export default function BarChart(){
       average(outputData)
     }
 
+    // average function set the data in both state
     const average = (rawData:outputDatatype) => {
       setcategory(Object.keys(rawData))
       setyaxisData(Object.values(rawData).map((el)=>(el.value/el.repeat)))
@@ -80,6 +86,5 @@ export default function BarChart(){
 
     return (
         <ReactEcharts option={options}/>
-        // <div></div>
     )
 }
